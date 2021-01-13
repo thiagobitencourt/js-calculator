@@ -14,7 +14,7 @@ export default function Number(props) {
                     { value: '3', id: 'three' },
                     { value: '2', id: 'two' },
                     { value: '1', id: 'one' },
-                    { value: '.', id: 'dot' },
+                    { value: '.', id: 'decimal' },
                     { value: '0', id: 'zero' }
                 ].map(({ value, id }) => 
                         <Button key={id} id={id} click={() => props.newValue(value)} label={value}/>

@@ -26,15 +26,20 @@ function App() {
   }
 
   function updateExpression(value) {
+    let updatedExpression = value;
     if (isInvalid) {
       setInvalid(false);
+    } else {
+      if (currentValue === '0' && value !== '.') {
+        updatedExpression = value;
+      } else {
+        if (value !== '.' || currentValue[currentValue.length - 1] !== '.') {
+          updatedExpression = currentValue + value;
+        }
+      }
     }
 
-    if (currentValue === '0' && value !== '.') {
-      setCurrentValue(value);
-    } else {
-      setCurrentValue(currentValue + value);
-    }
+    setCurrentValue(updatedExpression);
   }
 
   return (
