@@ -1,0 +1,37 @@
+.button {
+  cursor: pointer;
+  background: #f1f3f4;
+  color: #202124;
+  border: 1px solid #f1f3f4;
+  border-radius: 4px;
+
+  padding: 10px 20px;
+}
+
+.button:hover {
+  background: #f8f9fa;
+  border-color: #f8f9fa;
+}
+
+.button:focus {
+  border-color: #dadce0;
+  outline: none;
+}
+
+.button.action-button {
+  background: #dadce0;
+  border: 1px solid #dadce0;
+}
+
+.button.action-button:focus {
+  border-color: #70757a;
+}
+
+.button.primary-button {
+  background: #4285f4;
+  color: #fff;
+  border: 1px solid #4285f4;
+  font-weight: bold;
+  font-size: 18px;
+  height: 37px;
+}

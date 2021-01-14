@@ -44,11 +44,11 @@ function App() {
 
   return (
     <div className="calculator">
-      <div>
-        <Display previous={previousValue} current={currentValue} />
-        <Button id="equals" label="=" click={evaluateExpression}/>
+      <div className="display-panel">
+        <Display current={currentValue} />
+        <Button id="equals" primary={true} label="=" click={evaluateExpression}/>
       </div>
-      <div>
+      <div className="numbers-panel">
         <Numbers clear={() => setCurrentValue('0')} newValue={updateExpression} />
         <Actions operation={updateExpression} />
       </div>

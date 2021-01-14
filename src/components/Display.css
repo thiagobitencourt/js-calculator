@@ -1,4 +1,10 @@
 .display {
-  height: 85px;
-  border: 1px solid #ccc 10px;
+  height: 35px;
+  border: 1px solid #dadce0;
+  font-size: 24px;
+  border-radius: 8px;
+}
+
+.display .value {
+  padding-top: 5px;
 }
