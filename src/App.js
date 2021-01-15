@@ -60,6 +60,12 @@ function App() {
         <Numbers clear={() => setCurrentValue('0')} newValue={updateExpression} />
         <Actions operation={updateExpression} />
       </div>
+      <div className="credicts">
+        Developed by 
+        <a href="https://github.com/thiagobitencourt/js-calculator" target="_blank" rel="noreferrer">
+          Thiago Bitencourt
+        </a>
+      </div>
     </div>
   );
 }
