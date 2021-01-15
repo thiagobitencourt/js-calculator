@@ -7,13 +7,11 @@ import { useState } from 'react';
 
 function App() {
   const [currentValue, setCurrentValue] = useState('0');
-  const [previousValue, setPreviousValue] = useState('');
   const [isInvalid, setInvalid] = useState(false);
 
   function evaluateExpression() {
     if (!isInvalid) {
       try {
-        setPreviousValue(currentValue);
         setCurrentValue(eval(currentValue));
       } catch (e) {
         setCurrentValue('Invalid expression');
@@ -30,16 +28,26 @@ function App() {
     if (isInvalid) {
       setInvalid(false);
     } else {
+      // Does not allow two consecutive operator, except for negative sign
+      const operations = ['+', '*', '/', '-'];
+      const lastChar = currentValue[currentValue.length - 1];
+      const removeLastOperation = operations.includes(value) && operations.includes(lastChar) && value !== '-';
+      const lastOperationsIsSub = lastChar === '-';
+
       if (currentValue === '0' && value !== '.') {
         updatedExpression = value;
       } else {
-        if (value !== '.' || currentValue[currentValue.length - 1] !== '.') {
-          updatedExpression = currentValue + value;
-        }
+        updatedExpression = (removeLastOperation ? currentValue.slice(0, lastOperationsIsSub ? -2 : -1) : currentValue) + value;
       }
     }
 
-    setCurrentValue(updatedExpression);
+    const values = updatedExpression.split(/[/+*-]/);
+    const last = values[values.length - 1];
+
+    // Does not allow tow or more dots (.) per number
+    if (last.split('.').length <= 2) {
+      setCurrentValue(updatedExpression);
+    }
   }
 
   return (
